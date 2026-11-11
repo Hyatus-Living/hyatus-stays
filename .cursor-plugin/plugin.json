@@ -4,6 +4,8 @@
   "description": "Find furnished Hyatus stays, check dates and prices, and compare public listings.",
   "author": { "name": "Hyatus Living" },
   "homepage": "https://www.hyatus.com/integrations/stays/mcp.md",
-  "logo": "https://www.hyatus.com/faviconn.png",
+  "repository": "https://github.com/Hyatus-Living/hyatus-stays",
+  "license": "MIT",
+  "logo": "assets/logo.png",
   "keywords": ["travel", "housing", "mcp"]
 }
