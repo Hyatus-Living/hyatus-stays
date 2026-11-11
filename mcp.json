@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "hyatus-stays": {
+      "url": "https://www.hyatus.com/api/stays/mcp"
+    }
+  }
+}

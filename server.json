@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.hyatus-living/hyatus-stays",
+  "title": "Hyatus Stays",
+  "description": "Find furnished Hyatus stays, check dates and prices, and compare public listings.",
+  "version": "1.0.0",
+  "websiteUrl": "https://www.hyatus.com/integrations/stays/mcp.md",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://www.hyatus.com/api/stays/mcp"
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/Hyatus-Living/hyatus-stays",
+    "source": "github"
+  }
+}

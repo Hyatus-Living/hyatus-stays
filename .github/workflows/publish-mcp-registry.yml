@@ -1,0 +1,37 @@
+name: Publish to the official MCP Registry
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: mcp-registry-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      MCP_PUBLISHER_VERSION: '1.8.9'
+    steps:
+      - name: Validate and publish the connector
+        shell: bash
+        run: |
+          set -euo pipefail
+          release_url="https://github.com/modelcontextprotocol/registry/releases/download/v${MCP_PUBLISHER_VERSION}"
+          archive="mcp-publisher_linux_amd64.tar.gz"
+          checksums="registry_${MCP_PUBLISHER_VERSION}_checksums.txt"
+          curl --fail --silent --show-error --location --max-time 45 --output "$archive" "$release_url/$archive"
+          curl --fail --silent --show-error --location --max-time 45 --output "$checksums" "$release_url/$checksums"
+          awk -v archive="$archive" '$2 == archive' "$checksums" | sha256sum --check --strict
+          tar -xzf "$archive" mcp-publisher
+          curl --fail --silent --show-error --location --max-time 30 --output server.json \
+            "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${GITHUB_SHA}/server.json"
+          ./mcp-publisher validate server.json
+          ./mcp-publisher login github-oidc
+          ./mcp-publisher publish server.json

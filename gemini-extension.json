@@ -1,0 +1,10 @@
+{
+  "name": "hyatus-stays",
+  "version": "1.0.0",
+  "description": "Find furnished Hyatus stays, check dates and prices, and compare public listings.",
+  "mcpServers": {
+    "hyatus-stays": {
+      "httpUrl": "https://www.hyatus.com/api/stays/mcp"
+    }
+  }
+}

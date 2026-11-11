@@ -1,0 +1,9 @@
+{
+  "name": "hyatus-stays",
+  "version": "1.0.0",
+  "description": "Find furnished Hyatus stays, check dates and prices, and compare public listings.",
+  "author": { "name": "Hyatus Living" },
+  "homepage": "https://www.hyatus.com/integrations/stays/mcp.md",
+  "logo": "https://www.hyatus.com/faviconn.png",
+  "keywords": ["travel", "housing", "mcp"]
+}
